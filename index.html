@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samme ka Birthday</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #FFD1DC;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .container {
+            position: relative;
+            text-align: center;
+        }
+        .card, .page, .last-image {
+            width: 595px;
+            height: 842px;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            position: relative;
+        }
+        .card img, .page img, .last-image img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+        }
+        .button-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+        }
+        .click-me, .back-button {
+            background: #FF69B4;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .book-container, .last-image {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="firstCard">
+            <img src="./img/first.png" alt="Birthday Card Image">
+            <div class="button-container">
+                <div class="click-me" onclick="openBook()">Click Here</div>
+                <div class="back-button" onclick="goBackToFirst()">Back</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="book-container" id="bookContainer">
+        <div class="page" id="secondPage">
+            <img src="./img/j2.png" alt="Image 2">
+            <img src="./img/j3.png" alt="Image 3">
+            <div class="button-container">
+                <div class="back-button" onclick="goBackToFirst()">Back</div>
+                <div class="click-me" onclick="showLastImage()">Click Here</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="last-image" id="lastImage">
+        <img src="./img/third.jpg" alt="Final Image">
+        <div class="back-button" onclick="goBackToSecond()">Back</div>
+    </div>
+    
+    <script>
+        function openBook() {
+            document.getElementById("firstCard").style.display = "none";
+            document.getElementById("bookContainer").style.display = "block";
+        }
+        function showLastImage() {
+            document.getElementById("bookContainer").style.display = "none";
+            document.getElementById("lastImage").style.display = "block";
+        }
+        function goBackToFirst() {
+            document.getElementById("bookContainer").style.display = "none";
+            document.getElementById("firstCard").style.display = "flex";
+        }
+        function goBackToSecond() {
+            document.getElementById("lastImage").style.display = "none";
+            document.getElementById("bookContainer").style.display = "block";
+        }
+    </script>
+</body>
+</html>
